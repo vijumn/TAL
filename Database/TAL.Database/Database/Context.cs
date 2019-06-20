@@ -25,6 +25,10 @@ namespace TAL.Database.Database
                 .HasKey(c => c.RatingId);
             modelBuilder.Entity<Occupation>()
                 .HasKey(c => c.OccupationId);
+
+            modelBuilder.Entity<Occupation>()
+                .HasOne(p => p.Rating);
+
             modelBuilder.Seed();
         }
     }

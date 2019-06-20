@@ -4,7 +4,7 @@ namespace TAL.Premium.Domain.PremiumManagement
 {
     public interface IPremiumCalculationStrategy
     {
-        decimal CalculatePremium(Member member);
-        bool IsSatisfied(Member member);
+        decimal CalculatePremium(MemberModel member);
+        bool IsSatisfied(MemberModel member);
     }
 }

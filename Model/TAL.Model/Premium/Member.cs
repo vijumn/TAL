@@ -43,6 +43,19 @@ namespace TAL.Model.Premium
     {
         public string Name { get; set; }
         public DateTime DateOfBirth { get; set; }
+        public int Age
+        {
+            get
+            {
+                var today = DateTime.Today;
+                var age = today.Year - DateOfBirth.Year;
+                if (DateOfBirth.Date > today.AddYears(-age))
+                    age--;
+
+                return age;
+            }
+
+        }
         public int OccupationId { get; set; }
         public decimal RatingFactor { get; set; }
         public int DeathSumInsured { get; set; }

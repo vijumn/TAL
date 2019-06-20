@@ -8,7 +8,7 @@ namespace TAL.Premium.Domain.PremiumManagement
 
     public class PremiumService : IPremiumService
     {
-        public Member CalculatePremium(Member member)
+        public MemberModel CalculatePremium(MemberModel member)
         {
             var strategies = new List<IPremiumCalculationStrategy>
             {

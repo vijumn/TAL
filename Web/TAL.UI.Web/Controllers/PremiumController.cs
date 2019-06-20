@@ -13,7 +13,7 @@ namespace TAL.UI.Web.Controllers
 {
     [Route("api/v1/[controller]")]
     [ApiController]
-    public class PremiumController : ControllerBase
+    public class PremiumController : Controller
     { 
         private readonly IOccupationRepository _occupationRepository;
         private readonly IPremiumApplication _premiumService;

@@ -24,11 +24,14 @@ namespace TAL.Application.Premium
         }
         public async Task<MemberModel> CalculatePremium(MemberModel memberModel)
         {
-          var rating = await  _occupationRepository.GetRating(memberModel.OccupationId);
-          memberModel.RatingFactor = rating.Factor;
-          Member member = new Member(memberModel);
-          memberModel.Premium  = _premiumService.CalculatePremium(member).Premium;
-          return memberModel;
+            await EnrichDetails(memberModel);
+            memberModel.Premium = _premiumService.CalculatePremium(memberModel).Premium;
+            return memberModel;
+        }
+        private async Task EnrichDetails(MemberModel memberModel)
+        {
+            var rating = await _occupationRepository.GetRating(memberModel.OccupationId);
+            memberModel.RatingFactor = rating.Factor;
 
         }
     }

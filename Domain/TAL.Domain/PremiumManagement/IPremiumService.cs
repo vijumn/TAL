@@ -4,6 +4,6 @@ namespace TAL.Premium.Domain.PremiumManagement
 {
     public interface IPremiumService
     {
-        Member CalculatePremium(Member member);
+        MemberModel CalculatePremium(MemberModel member);
     }
 }

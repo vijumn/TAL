@@ -12,7 +12,7 @@ namespace TAL.UI.Web.Controllers
 {
     [Route("api/v1/[controller]")]
     [ApiController]
-    public class OccupationController : ControllerBase
+    public class OccupationController : Controller
     {
         private readonly IOccupationRepository _occupationRepository;
         public OccupationController(IOccupationRepository occupationRepository)

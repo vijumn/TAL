@@ -18,13 +18,13 @@ namespace TAL.UnitTest
                 Name = "Test",
                 OccupationId = 2,
                 RatingFactor = 1.5m,
-                DateOfBirth = Convert.ToDateTime("2012-04-21"),
+                Age = 7,
                 DeathSumInsured = 10000
             };
-            PremiumService domainService =new PremiumService();
+            PremiumService domainService = new PremiumService();
 
 
-            var result =domainService.CalculatePremium(memberModel);
+            var result = domainService.CalculatePremium(memberModel);
 
             Assert.Equal(premium, result.Premium);
         }
@@ -38,7 +38,7 @@ namespace TAL.UnitTest
                 Name = "Test",
                 OccupationId = 2,
                 RatingFactor = 1m,
-                DateOfBirth = Convert.ToDateTime("2012-04-21"),
+                Age = 7,
                 DeathSumInsured = 10000
             };
             PremiumService domainService = new PremiumService();
@@ -56,7 +56,7 @@ namespace TAL.UnitTest
             var memberModel = new MemberModel()
             {
                 RatingFactor = 1.25m,
-                DateOfBirth = Convert.ToDateTime("2012-04-21"),
+                Age = 7,
                 DeathSumInsured = 10000
             };
             PremiumService domainService = new PremiumService();
@@ -76,7 +76,7 @@ namespace TAL.UnitTest
             var memberModel = new MemberModel()
             {
                 RatingFactor = 2m,
-                DateOfBirth = Convert.ToDateTime("1900-04-21"),
+                Age = 119,
                 DeathSumInsured = 10000
             };
             PremiumService domainService = new PremiumService();
@@ -90,11 +90,11 @@ namespace TAL.UnitTest
         [Fact]
         public void Calculate_Premium_Test_RealAge()
         {
-            decimal premium = 468;
+            decimal premium = 600;
             var memberModel = new MemberModel()
             {
                 RatingFactor = 1m,
-                DateOfBirth = Convert.ToDateTime("1980-04-21"),
+                Age = 50,
                 DeathSumInsured = 1000
             };
             PremiumService domainService = new PremiumService();

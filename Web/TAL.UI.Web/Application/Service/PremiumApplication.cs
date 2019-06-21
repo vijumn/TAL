@@ -8,7 +8,7 @@ using TAL.Database.Repository;
 using TAL.Model.Premium;
 using TAL.Premium.Domain.PremiumManagement;
 
-namespace TAL.Application.Premium
+namespace TAL.Application.PremiumApplication
 {
     public class PremiumApplication :IPremiumApplication
     {
@@ -31,6 +31,8 @@ namespace TAL.Application.Premium
         private async Task EnrichDetails(MemberModel memberModel)
         {
             var rating = await _occupationRepository.GetRating(memberModel.OccupationId);
+            if (rating is null)
+                throw new Exception("Application Exception");
             memberModel.RatingFactor = rating.Factor;
 
         }

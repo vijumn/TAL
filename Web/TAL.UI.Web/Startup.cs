@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using TAL.Application.Premium;
+using TAL.Application.PremiumApplication;
 using TAL.Model.Premium;
 using TAL.Premium.Domain.PremiumManagement;
 

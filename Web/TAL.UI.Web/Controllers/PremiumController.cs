@@ -3,7 +3,7 @@ using System.Net;
 using System.Threading.Tasks;
 using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
-using TAL.Application.Premium;
+using TAL.Application.PremiumApplication;
 using TAL.Database.Repository;
 using TAL.Model.Premium;
 

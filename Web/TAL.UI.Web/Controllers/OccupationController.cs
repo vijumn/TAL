@@ -23,13 +23,12 @@ namespace TAL.UI.Web.Controllers
 
         [Route("occupationtypes")]
         [HttpGet]
-        [ProducesResponseType(typeof(IEnumerable<Occupation>), (int)HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(IEnumerable<OccupationModel>), (int)HttpStatusCode.OK)]
         public async Task<IActionResult> GetOccupationList()
         {
-            var cardTypes = await _occupationRepository.ListAllAsync();
+            var occupationList = await _occupationRepository.ListAllAsync();
                 
-
-            return Ok(cardTypes);
+            return Ok(occupationList);
         }
 
     }

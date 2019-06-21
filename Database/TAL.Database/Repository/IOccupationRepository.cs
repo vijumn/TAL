@@ -6,7 +6,7 @@ namespace TAL.Database.Repository
 {
     public interface IOccupationRepository
     {
-        Task<IEnumerable<Occupation>> ListAllAsync();
+        Task<List<OccupationModel>> ListAllAsync();
         Task<Rating> GetRating(int occupationId);
     }
 }

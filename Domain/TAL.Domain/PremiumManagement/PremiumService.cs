@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using TAL.Model.Premium;
 
 namespace TAL.Premium.Domain.PremiumManagement
 {
-
     public class PremiumService : IPremiumService
     {
         public MemberModel CalculatePremium(MemberModel member)
@@ -18,11 +15,10 @@ namespace TAL.Premium.Domain.PremiumManagement
             foreach (var strategy in strategies)
             {
                 if (!strategy.IsSatisfied(member)) continue;
-                member.Premium= strategy.CalculatePremium(member);
+                member.Premium = strategy.CalculatePremium(member);
                 break;
             }
             return member;
-
         }
     }
 }

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace TAL.Model.Premium
+﻿namespace TAL.Model.Premium
 {
     public class Rating
     {

@@ -9,7 +9,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="DotNetCore.EntityFrameworkCore" Version="8.6.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="2.2.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="2.2.4" />

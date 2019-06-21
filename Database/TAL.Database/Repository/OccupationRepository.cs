@@ -1,12 +1,6 @@
-﻿using System.Buffers.Text;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading;
-using DotNetCore.EntityFrameworkCore;
 using System.Threading.Tasks;
-using System;
-using System.Runtime.CompilerServices;
 using Microsoft.EntityFrameworkCore;
 using TAL.Database.Database;
 using TAL.Model.Premium;

@@ -9,6 +9,9 @@ Steps to Run the project
 2. Restore all Nuget and npm packages
 3.Hit F5
 
+Assumptions
+1. Only age is used to calculate the premium (Date of Birth is ignored)
+
 Followed following Principles and Practices
 
 * DDD (Domain-Driven Design)

@@ -1,7 +1,7 @@
 # TAL
 Premium Calculator
 Needs following tools to work the solution
-* Visual Studio 2017
+* Visual Studio 2017, Asp.net core 2.2
 * Angular 6
 
 Steps to Run the project 
@@ -11,6 +11,7 @@ Steps to Run the project
 
 Assumptions
 1. Only age is used to calculate the premium (Date of Birth is ignored)
+2. Validations are here TAL/Model/TAL.Model/Premium/MemberValidator.cs
 
 Followed following Principles and Practices
 

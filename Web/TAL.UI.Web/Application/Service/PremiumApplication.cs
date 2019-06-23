@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using TAL.Database.Repository;
 using TAL.Model.Premium;
+using TAL.Premium.Domain.Exceptions;
 using TAL.Premium.Domain.PremiumManagement;
 
 namespace TAL.Application.PremiumApplication.Service
@@ -26,9 +27,9 @@ namespace TAL.Application.PremiumApplication.Service
 
         private async Task EnrichDetails(MemberModel memberModel)
         {
-            var rating = await _occupationRepository.GetRating(memberModel.OccupationId);
-            if (rating is null)
-                throw new Exception("Rating is required");
+            var rating = await _occupationRepository.GetRating(memberModel.OccupationId) 
+                         ?? throw new PremiumDomainException("Valid Rating is required");
+               
             memberModel.RatingFactor = rating.Factor;
         }
     }

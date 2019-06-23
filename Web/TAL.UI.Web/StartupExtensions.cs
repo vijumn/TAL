@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -10,6 +12,7 @@ using TAL.Database.Database;
 using TAL.Database.Repository;
 using TAL.Model.Premium;
 using TAL.Premium.Domain.PremiumManagement;
+using TAL.UI.Web.Infrastructure;
 
 namespace TAL.UI.Web
 {
@@ -67,6 +70,16 @@ namespace TAL.UI.Web
                     spa.UseAngularCliServer(npmScript: "start");
                 }
             });
+        }
+        public static void AddCustomMVC(this IServiceCollection services)
+        {
+            services.AddMvc(
+                    options =>
+                    {
+                        options.Filters.Add(typeof(ExceptionFilter));
+                    })
+                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
+                .AddFluentValidation();
         }
     }
 }

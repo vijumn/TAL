@@ -24,4 +24,4 @@ References
 https://github.com/rafaelfgx/DotNetCoreArchitecture
 https://github.com/dotnet-architecture/eShopOnContainers
 
-PS: Angular test cases are failing now.
+

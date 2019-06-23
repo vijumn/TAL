@@ -1,23 +1,20 @@
-﻿using FluentValidation;
-using System;
+﻿using System;
 using System.Threading.Tasks;
 using TAL.Database.Repository;
 using TAL.Model.Premium;
 using TAL.Premium.Domain.PremiumManagement;
 
-namespace TAL.Application.PremiumApplication
+namespace TAL.Application.PremiumApplication.Service
 {
     public class PremiumApplication : IPremiumApplication
     {
         private readonly IOccupationRepository _occupationRepository;
         private readonly IPremiumService _premiumService;
-        private readonly IValidator<MemberModel> _validator;
 
-        public PremiumApplication(IOccupationRepository occupationRepository, IPremiumService premiumService, IValidator<MemberModel> memberValidator)
+        public PremiumApplication(IOccupationRepository occupationRepository, IPremiumService premiumService)
         {
             _occupationRepository = occupationRepository;
             _premiumService = premiumService;
-            _validator = memberValidator;
         }
 
         public async Task<MemberModel> CalculatePremium(MemberModel memberModel)
@@ -31,7 +28,7 @@ namespace TAL.Application.PremiumApplication
         {
             var rating = await _occupationRepository.GetRating(memberModel.OccupationId);
             if (rating is null)
-                throw new Exception("Application Exception");
+                throw new Exception("Rating is required");
             memberModel.RatingFactor = rating.Factor;
         }
     }

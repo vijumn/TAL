@@ -12,7 +12,7 @@ namespace TAL.UI.Web.Controllers
 {
     [Route("api/v1/[controller]")]
     [ApiController]
-    public class OccupationController : Controller
+    public class OccupationController : ControllerBase
     {
         private readonly IOccupationRepository _occupationRepository;
         public OccupationController(IOccupationRepository occupationRepository)
@@ -21,7 +21,7 @@ namespace TAL.UI.Web.Controllers
 
         }
 
-        [Route("occupationtypes")]
+        [Route("types")]
         [HttpGet]
         [ProducesResponseType(typeof(IEnumerable<OccupationModel>), (int)HttpStatusCode.OK)]
         public async Task<IActionResult> GetOccupationList()

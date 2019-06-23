@@ -20,14 +20,14 @@
                 <label class="form-label" for="dateofbirth">Date of Birth:</label>
                  <input [(ngModel)]="membermodel.dateOfBirth" #dateofbirth ="ngModel" type="date" class="form-control" autocomplete="off" required id="dateOfBirth" name="dateOfBirth" />
                  <div *ngIf="dateofbirth.invalid && (dateofbirth.dirty || dateofbirth.touched)"    class="alert alert-danger">
-                 <div *ngIf="dateofbirth.errors.required">dateofbirth is required.</div>
+                   <div *ngIf="dateofbirth.errors.required">Date of Birth is required.</div>
             </div>
             </div>
             <div class="row form-group col-6">
-                <label class="form-label" for="deathSumInsured">Death – Sum Insured:</label>
+                <label class="form-label" for="deathSumInsured">Death–Sum Insured:</label>
                     <input [(ngModel)]="membermodel.deathSumInsured" #deathsuminsured="ngModel" type="number" step="1000" min="1"  class="form-control" autocomplete="off" required id="deathSumInsured" name="deathSumInsured" />
                     <div *ngIf="deathsuminsured.invalid && (deathsuminsured.dirty || deathsuminsured.touched)"    class="alert alert-danger">
-                    <div *ngIf="deathsuminsured.errors.required">dateofbirth is required.</div>
+                    <div *ngIf="deathsuminsured.errors.required">Death-Sum Insured is required.</div>
             </div>
            </div>
             <div class="row form-group col-6">

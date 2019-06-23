@@ -18,14 +18,14 @@ export class PremiumCalculatorService {
   }
 
   getOccupationList(): Observable<IOccupation[]> {
-        let url = this.occupationUrl + '/occupationtypes';
+        let url = this.occupationUrl + '/types';
         return this.service.get(url).pipe(map((response: Response) => {
             return response;
         }));
   }
 
 calculatePremium(premium): Observable<IPremium> {
-  let url = this.premiumUrl + '/CalculatePremium';
+  let url = this.premiumUrl + '/Calculate';
   return this.service.post(url, premium).pipe(map((response: Response) => {
     return response;
   }));

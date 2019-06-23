@@ -6,17 +6,24 @@ import { InjectionToken } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse, HttpHandler } from "@angular/common/http";
 export const BASE_URL = new InjectionToken<string>('BASE_URL');
 
+export function getBaseUrl() {
+  return 'http://localhost';
+}
+
+
 describe('PremiumCalculatorService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [PremiumCalculatorService,  DataService,   
-        { provide: BASE_URL, useValue: 'http://localhost' },HttpClient,HttpHandler
-      
+      imports: [
+        HttpClientTestingModule,
+    ],
+      providers: [PremiumCalculatorService,  DataService, HttpClient,
+        { provide: 'BASE_URL', useFactory: getBaseUrl, deps: []  }, HttpClient, HttpHandler
       ]
     });
   });
 
-  it('should be created', inject([PremiumCalculatorService], (service: PremiumCalculatorService) => {
+  it('premium service should be created', inject([PremiumCalculatorService], (service: PremiumCalculatorService) => {
     expect(service).toBeTruthy();
   }));
 });

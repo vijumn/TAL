@@ -15,16 +15,15 @@ namespace TAL.Database.Repository
             _context = context;
         }
 
-        public Task<List<OccupationModel>> ListAllAsync()
+        public async Task<IEnumerable<OccupationModel>> ListAllAsync()
         {
-            return _context.Occupations.Select(occ => new OccupationModel()
+            return await _context.Occupations.Select(occ => new OccupationModel()
             {
                 OccupationId = occ.OccupationId,
                 Name = occ.Name
-            }).OrderBy(order=>order.Name).ToListAsync();
-
-
+            }).OrderBy(order => order.Name).ToListAsync();
         }
+
 
         public async Task<Rating> GetRating(int occupationId)
         {

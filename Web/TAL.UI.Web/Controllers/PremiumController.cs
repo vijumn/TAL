@@ -1,31 +1,25 @@
-﻿using System.Collections.Generic;
-using System.Net;
+﻿using System.Net;
 using System.Threading.Tasks;
 using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
-using TAL.Application.PremiumApplication;
-using TAL.Database.Repository;
+using TAL.Application.PremiumApplication.Service;
 using TAL.Model.Premium;
-
-
 
 namespace TAL.UI.Web.Controllers
 {
     [Route("api/v1/[controller]")]
     [ApiController]
-    public class PremiumController : Controller
+    public class PremiumController : ControllerBase
     { 
-        private readonly IOccupationRepository _occupationRepository;
         private readonly IPremiumApplication _premiumService;
         private readonly IValidator<MemberModel> _validator;
-        public PremiumController(IOccupationRepository occupationRepository, IPremiumApplication premiumService, IValidator<MemberModel> memberValidator)
+        public PremiumController(IPremiumApplication premiumService, IValidator<MemberModel> memberValidator)
         {
-            _occupationRepository = occupationRepository;
             _premiumService = premiumService;
             _validator = memberValidator;
         }
 
-        [Route("CalculatePremium")]
+        [Route("Calculate")]
         [HttpPost]
         [ProducesResponseType(typeof(MemberModel), (int)HttpStatusCode.OK)]
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]

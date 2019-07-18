@@ -33,6 +33,15 @@
 
   <ItemGroup>
     <Folder Include="Application\Queries\" />
+    <Folder Include="ClientApp\src\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="angular.json" />
+    <None Include="package-lock.json" />
+    <None Include="package.json" />
+    <None Include="tsconfig.json" />
+    <None Include="tslint.json" />
   </ItemGroup>
 
   <ItemGroup>

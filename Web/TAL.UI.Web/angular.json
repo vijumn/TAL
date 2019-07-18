@@ -15,17 +15,17 @@
           "options": {
             "progress": true,
             "extractCss": true,
-            "outputPath": "dist",
-            "index": "src/index.html",
-            "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
-            "tsConfig": "src/tsconfig.app.json",
+            "outputPath": "wwwroot/",
+            "index": "ClientApp/index.html",
+            "main": "ClientApp/main.ts",
+            "polyfills": "ClientApp/polyfills.ts",
+            "tsConfig": "./tsconfig.json",
             "assets": [
               "src/assets"
             ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "src/styles.css"
+              "ClientApp/styles.css"
             ],
             "scripts": []
           },
@@ -33,8 +33,8 @@
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
+                  "replace": "ClientApp/environments/environment.ts",
+                  "with": "ClientApp/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -69,16 +69,16 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "src/test.ts",
-            "polyfills": "src/polyfills.ts",
-            "tsConfig": "src/tsconfig.spec.json",
-            "karmaConfig": "src/karma.conf.js",
+            "main": "ClientApp/test.ts",
+            "polyfills": "ClientApp/polyfills.ts",
+            "tsConfig": "ClientApp/tsconfig.spec.json",
+            "karmaConfig": "ClientApp/karma.conf.js",
             "styles": [
               "styles.css"
             ],
             "scripts": [],
             "assets": [
-              "src/assets"
+              "ClientApp/assets"
             ]
           }
         },
@@ -86,8 +86,8 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "src/tsconfig.app.json",
-              "src/tsconfig.spec.json"
+              "tsconfig.app.json",
+              "tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
@@ -98,8 +98,8 @@
           "builder": "@angular-devkit/build-angular:server",
           "options": {
             "outputPath": "dist-server",
-            "main": "src/main.ts",
-            "tsConfig": "src/tsconfig.server.json"
+            "main": "ClientApp/main.ts",
+            "tsConfig": "tsconfig.server.json"
           },
           "configurations": {
             "dev": {

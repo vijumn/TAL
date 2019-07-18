@@ -22,21 +22,6 @@ COPY  /Web/TAL.UI.Web/ .
 RUN npm install --suppess-warnings --loglevel=error
 RUN npm run build:prod
 
-# # Angular
-# FROM node:12.2.0-alpine AS angular-build
-# ARG ANGULAR_ENVIRONMENT
-# WORKDIR /ClientApp
-# ENV PATH /ClientApp/node_modules/.bin:$PATH
-# COPY /Web/TAL.UI.Web/ClientApp/package.json .
-# COPY /Web/TAL.UI.Web/ClientApp/angular.json .
-# COPY /Web/TAL.UI.Web/ClientApp/tsconfig.json .
-# RUN npm  install --suppess-warnings --loglevel=error
-# COPY /Web/TAL.UI.Web/ClientApp/ .
-# RUN npm run build:prod
-
-# FROM build AS publish
-# RUN dotnet publish "TAL.UI.Web.csproj" -c Release -o /app
-
 FROM build as publish
 WORKDIR /Web/TAL.UI.Web/wwwroot
 COPY --from=node-build /web/wwwroot .
